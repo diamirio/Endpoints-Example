@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8211A84D2AFBDBFD00A36244 /* AsyncReactor in Frameworks */ = {isa = PBXBuildFile; productRef = 8211A84C2AFBDBFD00A36244 /* AsyncReactor */; };
 		82BA531E29DEE73D00F7726A /* Endpoints in Frameworks */ = {isa = PBXBuildFile; productRef = 82BA531D29DEE73D00F7726A /* Endpoints */; };
+		FA00E2132EA1235900F4B75A /* Endpoints in Frameworks */ = {isa = PBXBuildFile; productRef = FA00E2122EA1235900F4B75A /* Endpoints */; };
 		FA1376D02E97832400AB27E1 /* Endpoints in Frameworks */ = {isa = PBXBuildFile; productRef = FA1376CF2E97832400AB27E1 /* Endpoints */; };
 		FA1376DA2E97849000AB27E1 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FA1376D92E97848C00AB27E1 /* .gitignore */; };
 		FA1377002E978A9000AB27E1 /* Endpoints in Frameworks */ = {isa = PBXBuildFile; productRef = FA1376FF2E978A9000AB27E1 /* Endpoints */; };
@@ -57,6 +58,7 @@
 				FAD06B6B2E8C1C8C00E87155 /* Injection in Frameworks */,
 				FA1376D02E97832400AB27E1 /* Endpoints in Frameworks */,
 				8211A84D2AFBDBFD00A36244 /* AsyncReactor in Frameworks */,
+				FA00E2132EA1235900F4B75A /* Endpoints in Frameworks */,
 				FA1377002E978A9000AB27E1 /* Endpoints in Frameworks */,
 				82BA531E29DEE73D00F7726A /* Endpoints in Frameworks */,
 			);
@@ -126,6 +128,7 @@
 				FAD06B6A2E8C1C8C00E87155 /* Injection */,
 				FA1376CF2E97832400AB27E1 /* Endpoints */,
 				FA1376FF2E978A9000AB27E1 /* Endpoints */,
+				FA00E2122EA1235900F4B75A /* Endpoints */,
 			);
 			productName = EndpointsTestbed;
 			productReference = 82BA52ED29DEE35C00F7726A /* EndpointsExample.app */;
@@ -182,7 +185,7 @@
 			packageReferences = (
 				8211A84B2AFBDBFD00A36244 /* XCRemoteSwiftPackageReference "AsyncReactor" */,
 				FAD06B692E8C1C8C00E87155 /* XCRemoteSwiftPackageReference "Injection" */,
-				FA1376FE2E978A9000AB27E1 /* XCLocalSwiftPackageReference "../Endpoints" */,
+				FA00E2112EA1235900F4B75A /* XCRemoteSwiftPackageReference "Endpoints" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 82BA52EE29DEE35C00F7726A /* Products */;
@@ -489,13 +492,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		FA1376FE2E978A9000AB27E1 /* XCLocalSwiftPackageReference "../Endpoints" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = ../Endpoints;
-		};
-/* End XCLocalSwiftPackageReference section */
-
 /* Begin XCRemoteSwiftPackageReference section */
 		8211A84B2AFBDBFD00A36244 /* XCRemoteSwiftPackageReference "AsyncReactor" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -503,6 +499,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
+			};
+		};
+		FA00E2112EA1235900F4B75A /* XCRemoteSwiftPackageReference "Endpoints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/diamirio/Endpoints";
+			requirement = {
+				branch = "feature/swift-6.2";
+				kind = branch;
 			};
 		};
 		FAD06B692E8C1C8C00E87155 /* XCRemoteSwiftPackageReference "Injection" */ = {
@@ -523,6 +527,11 @@
 		};
 		82BA531D29DEE73D00F7726A /* Endpoints */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = Endpoints;
+		};
+		FA00E2122EA1235900F4B75A /* Endpoints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA00E2112EA1235900F4B75A /* XCRemoteSwiftPackageReference "Endpoints" */;
 			productName = Endpoints;
 		};
 		FA1376CF2E97832400AB27E1 /* Endpoints */ = {

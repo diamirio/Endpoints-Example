@@ -1,5 +1,5 @@
 {
-  "originHash" : "17cad9ff9bd4b7f701f17d4c3c0f3c505388b263736cba348514e50050c1af7a",
+  "originHash" : "06743052361b4b7a9ca66b7fa3c9fb2bb5e55d19a61ce2f13f2ac3dc267d3ada",
   "pins" : [
     {
       "identity" : "asyncreactor",
@@ -8,6 +8,15 @@
       "state" : {
         "revision" : "e3fde7f9c1fb4db349039796c5c138571c71dadd",
         "version" : "1.2.1"
+      }
+    },
+    {
+      "identity" : "endpoints",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/diamirio/Endpoints",
+      "state" : {
+        "branch" : "feature/swift-6.2",
+        "revision" : "f94349bf4489be4b4829c759aed302ed8e308ce0"
       }
     },
     {
