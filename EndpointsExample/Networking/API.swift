@@ -8,25 +8,35 @@
 import Endpoints
 import Foundation
 
-actor API {
-    var postmanSession: Session<PostmanEchoClient>
-    var httpBinSession: Session<HTTPBinClient>
+protocol API: Actor {
+    func loadExampleData() async throws -> (ExampleModel, HTTPURLResponse)
+    func loadManipulatedData(deliveredStatusCode: Int) async throws -> (String, HTTPURLResponse)
+}
+
+actor ExampleAPI: API {
+    var postmanSession: Session<AnyClient>
+    var httpBinSession: Session<AnyClient>
     var manipulatedHttpBinSession: Session<ManipulatedHTTPBinClient>
 
-    init() {
-        let postmanClient = PostmanEchoClient()
+    init(
+        postmanClient: AnyClient,
+        httpBinClient: AnyClient,
+        manipulatedHttpBinClient: ManipulatedHTTPBinClient,
+    ) {
         self.postmanSession = Session(with: postmanClient)
-
-        let httpBinClient = HTTPBinClient()
         self.httpBinSession = Session(with: httpBinClient)
-
-        let manipulatedHttpBinClient = ManipulatedHTTPBinClient()
         self.manipulatedHttpBinSession = Session(with: manipulatedHttpBinClient)
     }
 
-    func loadData() async throws -> (ExampleModel, HTTPURLResponse) {
+    func loadExampleData() async throws -> (ExampleModel, HTTPURLResponse) {
         try await postmanSession.dataTask(
             for: PostmanEchoClient.ExampleGetCall()
+        )
+    }
+    
+    func loadManipulatedData(deliveredStatusCode: Int) async throws -> (String, HTTPURLResponse) {
+        try await manipulatedHttpBinSession.dataTask(
+            for: ManipulatedHTTPBinClient.GetStatusCode(deliveredStatusCode: deliveredStatusCode)
         )
     }
 }

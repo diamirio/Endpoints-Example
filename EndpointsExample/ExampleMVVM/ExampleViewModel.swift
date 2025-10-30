@@ -8,16 +8,11 @@ class ExampleViewModel: ObservableObject {
     var text: String = ""
 
     @Inject
-    var postmanSession: Session<PostmanEchoClient>
-
-    @Inject
-    var manipulatedHttpBinSession: Session<ManipulatedHTTPBinClient>
+    private var api: API
 
     func executeRequests() {
         Task {
-            let (body, response) = try await postmanSession.dataTask(
-                for: PostmanEchoClient.ExampleGetCall()
-            )
+            let (body, response) = try await api.loadExampleData()
             guard response.statusCode == 200 else { return }
 
             await MainActor.run {
@@ -26,9 +21,7 @@ class ExampleViewModel: ObservableObject {
         }
 
         Task {
-            let (_, response) = try await manipulatedHttpBinSession.dataTask(
-                for: ManipulatedHTTPBinClient.GetStatusCode(deliveredStatusCode: 220)
-            )
+            let (_, response) = try await api.loadManipulatedData(deliveredStatusCode: 220)
             guard response.statusCode == 200 else { return }
             print("Success")
         }

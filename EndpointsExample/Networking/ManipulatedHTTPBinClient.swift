@@ -2,7 +2,7 @@ import Endpoints
 import Foundation
 
 struct ManipulatedHTTPBinClient: Client {
-    var client: Client
+    private var client: Client
 
     init() {
         let url = URL(string: "https://httpbin.org/")!

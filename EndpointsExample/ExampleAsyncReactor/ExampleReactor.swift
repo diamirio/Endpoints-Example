@@ -16,7 +16,7 @@ class ExampleReactor: AsyncReactor {
     private(set) var state = State()
 
     @Inject
-    var postmanSession: Session<PostmanEchoClient>
+    private var api: API
 
     func action(_ action: Action) async {
         switch action {
@@ -27,9 +27,7 @@ class ExampleReactor: AsyncReactor {
 
     private func executeRequest() async {
         do {
-            let (body, response) = try await postmanSession.dataTask(
-                for: PostmanEchoClient.ExampleGetCall()
-            )
+            let (body, response) = try await api.loadExampleData()
 
             guard response.statusCode == 200 else { return }
             state.text = body.url

@@ -1,14 +1,8 @@
 import Endpoints
 import Foundation
 
-struct PostmanEchoClient: Client {
-    let client: Client
 
-    init() {
-        let baseURL = URL(string: "https://postman-echo.com")!
-        self.client = AnyClient(baseURL: baseURL)
-    }
-
+enum PostmanEchoClient {
     struct ExampleGetCall: Call {
         typealias Parser = JSONParser<ExampleModel>
 

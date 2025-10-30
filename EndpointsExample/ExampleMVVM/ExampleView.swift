@@ -18,8 +18,6 @@ struct ExampleView: View {
     }
 }
 
-struct ExampleView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExampleView()
-    }
+#Preview {
+    ExampleView()
 }
