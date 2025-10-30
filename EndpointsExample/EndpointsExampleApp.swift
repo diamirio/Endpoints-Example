@@ -1,10 +1,12 @@
+// Copyright © 2025 DIAMIR. All Rights Reserved.
+
 import AsyncReactor
 import SwiftUI
 
 @main
 struct EndpointsExampleApp: App {
     init() {
-        DI.register()
+        DependencyInjection.register()
     }
 
     var body: some Scene {

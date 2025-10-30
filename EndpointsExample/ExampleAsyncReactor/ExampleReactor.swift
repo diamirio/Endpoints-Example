@@ -1,3 +1,5 @@
+// Copyright © 2025 DIAMIR. All Rights Reserved.
+
 import AsyncReactor
 import Endpoints
 import Foundation

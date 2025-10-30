@@ -1,9 +1,11 @@
+// Copyright © 2025 DIAMIR. All Rights Reserved.
+
 import Endpoints
 import Foundation
 import Injection
 
 @MainActor
-enum DI {
+enum DependencyInjection {
     static func register() {
         let postmanEchoUrl = URL(string: "https://postman-echo.com")!
         let postmanClient = AnyClient(baseURL: postmanEchoUrl)

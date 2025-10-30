@@ -1,9 +1,4 @@
-//
-//  API.swift
-//  EndpointsTestbed
-//
-//  Created by Alexander Kauer on 11.09.25.
-//
+// Copyright © 2025 DIAMIR. All Rights Reserved.
 
 import Endpoints
 import Foundation
@@ -14,9 +9,9 @@ protocol API: Actor {
 }
 
 actor ExampleAPI: API {
-    var postmanSession: Session<AnyClient>
-    var httpBinSession: Session<AnyClient>
-    var manipulatedHttpBinSession: Session<ManipulatedHTTPBinClient>
+    private let postmanSession: Session<AnyClient>
+    private let httpBinSession: Session<AnyClient>
+    private let manipulatedHttpBinSession: Session<ManipulatedHTTPBinClient>
 
     init(
         postmanClient: AnyClient,

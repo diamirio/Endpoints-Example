@@ -1,9 +1,4 @@
-//
-//  EndpointsTestbedTests.swift
-//  EndpointsTestbedTests
-//
-//  Created by Alexander Kauer on 06.04.23.
-//
+// Copyright © 2023 DIAMIR. All Rights Reserved.
 
 @testable import EndpointsExample
 import XCTest

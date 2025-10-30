@@ -1,6 +1,7 @@
+// Copyright © 2025 DIAMIR. All Rights Reserved.
+
 import Endpoints
 import Foundation
-
 
 enum PostmanEchoClient {
     struct ExampleGetCall: Call {
