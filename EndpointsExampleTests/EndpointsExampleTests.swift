@@ -1,4 +1,4 @@
-// Copyright © 2023 DIAMIR. All Rights Reserved.
+// Copyright © 2025 DIAMIR. All Rights Reserved.
 
 @testable import EndpointsExample
 import XCTest
