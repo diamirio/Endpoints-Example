@@ -23,8 +23,8 @@ class ExampleViewModel: ObservableObject {
         }
 
         Task {
-            let (_, response) = try await api.loadManipulatedData(deliveredStatusCode: 220)
-            guard response.statusCode == 200 else { return }
+            let (_, response) = try await api.loadCustomizedData(deliveredStatusCode: 220)
+            guard response.statusCode == 220 else { return }
             print("Success")
         }
     }

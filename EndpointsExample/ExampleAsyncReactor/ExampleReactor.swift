@@ -7,7 +7,7 @@ import Injection
 
 class ExampleReactor: AsyncReactor {
     enum Action {
-        case executeRequests
+        case executeRequest
     }
 
     struct State {
@@ -22,7 +22,7 @@ class ExampleReactor: AsyncReactor {
 
     func action(_ action: Action) async {
         switch action {
-        case .executeRequests:
+        case .executeRequest:
             await executeRequest()
         }
     }

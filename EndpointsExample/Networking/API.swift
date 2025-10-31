@@ -5,22 +5,22 @@ import Foundation
 
 protocol API: Actor {
     func loadExampleData() async throws -> (ExampleModel, HTTPURLResponse)
-    func loadManipulatedData(deliveredStatusCode: Int) async throws -> (String, HTTPURLResponse)
+    func loadCustomizedData(deliveredStatusCode: Int) async throws -> (String, HTTPURLResponse)
 }
 
 actor ExampleAPI: API {
-    private let postmanSession: Session<AnyClient>
-    private let httpBinSession: Session<AnyClient>
-    private let manipulatedHttpBinSession: Session<ManipulatedHTTPBinClient>
+    private let postmanSession: Session<DefaultClient>
+    private let httpBinSession: Session<DefaultClient>
+    private let customizedHttpBinSession: Session<CustomizedHTTPBinClient>
 
     init(
-        postmanClient: AnyClient,
-        httpBinClient: AnyClient,
-        manipulatedHttpBinClient: ManipulatedHTTPBinClient,
+        postmanClient: DefaultClient,
+        httpBinClient: DefaultClient,
+        customizedHttpBinSession: CustomizedHTTPBinClient,
     ) {
         self.postmanSession = Session(with: postmanClient)
         self.httpBinSession = Session(with: httpBinClient)
-        self.manipulatedHttpBinSession = Session(with: manipulatedHttpBinClient)
+        self.customizedHttpBinSession = Session(with: customizedHttpBinSession)
     }
 
     func loadExampleData() async throws -> (ExampleModel, HTTPURLResponse) {
@@ -29,9 +29,9 @@ actor ExampleAPI: API {
         )
     }
     
-    func loadManipulatedData(deliveredStatusCode: Int) async throws -> (String, HTTPURLResponse) {
-        try await manipulatedHttpBinSession.dataTask(
-            for: ManipulatedHTTPBinClient.GetStatusCode(deliveredStatusCode: deliveredStatusCode)
+    func loadCustomizedData(deliveredStatusCode: Int) async throws -> (String, HTTPURLResponse) {
+        try await customizedHttpBinSession.dataTask(
+            for: CustomizedHTTPBinClient.GetStatusCode(deliveredStatusCode: deliveredStatusCode)
         )
     }
 }

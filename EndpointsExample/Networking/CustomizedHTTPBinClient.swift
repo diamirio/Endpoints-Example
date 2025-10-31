@@ -3,30 +3,30 @@
 import Endpoints
 import Foundation
 
-struct ManipulatedHTTPBinClient: Client {
+struct CustomizedHTTPBinClient: Client {
     private var client: Client
 
     init() {
         let url = URL(string: "https://httpbin.org/")!
-        self.client = AnyClient(baseURL: url)
+        self.client = DefaultClient(baseURL: url)
     }
 
     func encode(call: some Endpoints.Call) async throws -> URLRequest {
         // Custom manipulation i.e. OAuth implementation
-        print("- MANIPULATED encode -")
+        print("- CUSTOMIZED encode -")
         return try await client.encode(call: call)
     }
 
     func parse<C>(response: HTTPURLResponse?, data: Data?, for call: C) async throws -> C.Parser.OutputType
         where C: Call {
         // Custom manipulation i.e. react on error responses or invalid tokens
-        print("- MANIPULATED parse -")
+        print("- CUSTOMIZED parse -")
         return try await client.parse(response: response, data: data, for: call)
     }
 
     func validate(response: HTTPURLResponse?, data: Data?) async throws {
         // Custom validation if needed
-        print("- MANIPULATED validate -")
+        print("- CUSTOMIZED validate -")
         return try await client.validate(response: response, data: data)
     }
 

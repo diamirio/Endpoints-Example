@@ -4,7 +4,9 @@ import AsyncReactor
 import SwiftUI
 
 struct ExampleReactorView: View {
-    @EnvironmentObject var reactor: ExampleReactor
+    
+    @EnvironmentObject
+    private var reactor: ExampleReactor
 
     var body: some View {
         VStack {
@@ -15,8 +17,8 @@ struct ExampleReactorView: View {
                     .font(.headline)
             }
         }
-        .onAppear {
-            reactor.send(.executeRequests)
+        .task {
+            await reactor.action(.executeRequest)
         }
     }
 }
