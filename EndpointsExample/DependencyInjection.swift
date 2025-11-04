@@ -8,10 +8,10 @@ import Injection
 enum DependencyInjection {
     static func register() {
         let postmanEchoUrl = URL(string: "https://postman-echo.com")!
-        let postmanClient = DefaultClient(baseURL: postmanEchoUrl)
+        let postmanClient = DefaultClient(url: postmanEchoUrl)
         
         let httpBinUrl = URL(string: "https://httpbin.org/")!
-        let httpBinClient = DefaultClient(baseURL: httpBinUrl)
+        let httpBinClient = DefaultClient(url: httpBinUrl)
         
         let customizedHttpBinSession = CustomizedHTTPBinClient()
         

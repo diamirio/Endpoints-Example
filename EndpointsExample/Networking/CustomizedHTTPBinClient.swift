@@ -8,7 +8,7 @@ struct CustomizedHTTPBinClient: Client {
 
     init() {
         let url = URL(string: "https://httpbin.org/")!
-        self.client = DefaultClient(baseURL: url)
+        self.client = DefaultClient(url: url)
     }
 
     func encode(call: some Endpoints.Call) async throws -> URLRequest {
