@@ -16,11 +16,11 @@ actor ExampleAPI: API {
     init(
         postmanClient: DefaultClient,
         httpBinClient: DefaultClient,
-        customizedHttpBinSession: CustomizedHTTPBinClient,
+        customizedHttpBinClient: CustomizedHTTPBinClient,
     ) {
         self.postmanSession = Session(with: postmanClient)
         self.httpBinSession = Session(with: httpBinClient)
-        self.customizedHttpBinSession = Session(with: customizedHttpBinSession)
+        self.customizedHttpBinSession = Session(with: customizedHttpBinClient)
     }
 
     func loadExampleData() async throws -> (ExampleModel, HTTPURLResponse) {

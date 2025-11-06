@@ -13,12 +13,12 @@ enum DependencyInjection {
         let httpBinUrl = URL(string: "https://httpbin.org/")!
         let httpBinClient = DefaultClient(url: httpBinUrl)
         
-        let customizedHttpBinSession = CustomizedHTTPBinClient()
+        let customizedHttpBinClient = CustomizedHTTPBinClient()
         
         let api = ExampleAPI(
             postmanClient: postmanClient,
             httpBinClient: httpBinClient,
-            customizedHttpBinSession: customizedHttpBinSession,
+            customizedHttpBinClient: customizedHttpBinClient,
         )
         
         DependencyInjector.register(api, as: API.self)
