@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/diamirio/Endpoints",
       "state" : {
-        "branch" : "feature/swift-6.2",
-        "revision" : "82d7773d760288135e6cb82d91e19e85e905bdc0"
+        "revision" : "22acf3704ff43c029595c34728eeb15b68ae5f99",
+        "version" : "4.0.0"
       }
     },
     {
