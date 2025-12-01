@@ -1,0 +1,41 @@
+// Copyright © 2025 DIAMIR. All Rights Reserved.
+
+import AsyncReactor
+import Endpoints
+import Foundation
+import Injection
+
+class ExampleReactor: AsyncReactor {
+    enum Action {
+        case executeRequest
+    }
+
+    struct State {
+        var text = ""
+    }
+
+    @Published
+    private(set) var state = State()
+
+    @Inject
+    private var api: API
+
+    func action(_ action: Action) async {
+        switch action {
+        case .executeRequest:
+            await executeRequest()
+        }
+    }
+
+    private func executeRequest() async {
+        do {
+            let (body, response) = try await api.loadExampleData()
+
+            guard response.statusCode == 200 else { return }
+            state.text = body.url
+        } catch {
+            guard let error = error as? EndpointsError else { return }
+            print(error.response?.statusCode ?? "")
+        }
+    }
+}

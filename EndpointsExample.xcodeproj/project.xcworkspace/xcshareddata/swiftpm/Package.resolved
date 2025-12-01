@@ -1,0 +1,33 @@
+{
+  "originHash" : "06743052361b4b7a9ca66b7fa3c9fb2bb5e55d19a61ce2f13f2ac3dc267d3ada",
+  "pins" : [
+    {
+      "identity" : "asyncreactor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/diamirio/AsyncReactor",
+      "state" : {
+        "revision" : "e3fde7f9c1fb4db349039796c5c138571c71dadd",
+        "version" : "1.2.1"
+      }
+    },
+    {
+      "identity" : "endpoints",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/diamirio/Endpoints",
+      "state" : {
+        "revision" : "22acf3704ff43c029595c34728eeb15b68ae5f99",
+        "version" : "4.0.0"
+      }
+    },
+    {
+      "identity" : "injection",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/diamirio/Injection",
+      "state" : {
+        "revision" : "57a66d3f21ff5564542a6b157838ae97b67447f0",
+        "version" : "1.1.0"
+      }
+    }
+  ],
+  "version" : 3
+}
